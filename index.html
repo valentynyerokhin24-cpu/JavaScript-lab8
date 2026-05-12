@@ -2,30 +2,44 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 8 - JavaScript Effects</title>
     <link rel="stylesheet" href="style.css">
-    <title>Лабораторна №8</title>
 </head>
 <body>
-    <nav>
-        <button id="hamburger">☰ MENU</button>
-        <ul id="menu">
-            <li>Головна</li>
-            <li>Про нас</li>
-            <li>Контакти</li>
+    <nav class="navbar">
+        <button class="hamburger" id="hamburger">☰</button>
+        <ul class="nav-menu" id="nav-menu">
+            <li><span>🏠</span> Головна</li>
+            <li><span>ℹ️</span> Про нас</li>
+            <li><span>🛠️</span> Послуги</li>
+            <li><span>📞</span> Контакти</li>
         </ul>
     </nav>
 
-    <div class="carousel">
-        <div class="slides">
-            <img src="https://placeholdit.com/800x400/f3f4f6/6b7280?text=Laboratory+work+8&font=&font_size=32" alt="S1">
-            <img src="https://placeholdit.com/800x400/f3f4f6/6b7280?text=JS+Development&font=&font_size=32">
-            <img src="https://placeholdit.com/800x400/f3f4f6/6b7280?text=NETWORK+CONFIGURATION&font_size=32" alt="S3">
+    <div class="carousel-container">
+        <div class="carousel-slide" id="carousel-slide">
+            <img src="https://placehold.co/800x400?text=Slide+1" alt="Slide 1">
+            <img src="https://placehold.co/800x400?text=Slide+2" alt="Slide 2">
+            <img src="https://placehold.co/800x400?text=Slide+3" alt="Slide 3">
         </div>
-        <div class="controls">
-            <button id="prev">← PREV</button>
-            <button id="next">NEXT →</button>
-        </div>
+        <button class="prev" onclick="moveSlide(-1)">❮</button>
+        <button class="next" onclick="moveSlide(1)">❯</button>
+        <div class="indicators" id="indicators"></div>
     </div>
+
+    <section class="content">
+        <div class="large-only">
+            <h3>Тільки для Large (>=768px)</h3>
+            <img src="https://placehold.co/300x200?text=Large+1" alt="L1">
+            <img src="https://placehold.co/300x200?text=Large+2" alt="L2">
+        </div>
+        <div class="medium-only">
+            <h3>Тільки для Medium (<768px)</h3>
+            <img src="https://placehold.co/200x150?text=Med+1" alt="M1">
+            <img src="https://placehold.co/200x150?text=Med+2" alt="M2">
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
