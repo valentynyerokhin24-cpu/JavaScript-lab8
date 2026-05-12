@@ -1,21 +1,30 @@
-body {
-    font-family: 'Courier New', monospace;
-    background: #0d1117;
-    color: #c9d1d9;
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
+/* Базові стилі */
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
+
+/* Навігація [cite: 20] */
+.navbar { background: #333; color: white; padding: 1rem; position: relative; }
+.nav-menu { display: flex; list-style: none; gap: 20px; transition: all 0.5s ease; }
+.hamburger { display: none; background: none; border: none; color: white; fontSize: 24px; cursor: pointer; }
+
+/* Карусель [cite: 21, 22] */
+.carousel-container { position: relative; width: 90%; max-width: 800px; margin: 20px auto; overflow: hidden; }
+.carousel-slide { display: flex; transition: transform 0.5s ease-in-out; }
+.carousel-slide img { width: 100%; flex-shrink: 0; }
+.prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; }
+.next { right: 0; }
+.indicators { text-align: center; margin-top: 10px; }
+.dot { height: 12px; width: 12px; margin: 0 5px; background-color: #bbb; border-radius: 50%; display: inline-block; cursor: pointer; }
+.active { background-color: #333; }
+
+/* Адаптивність [cite: 17, 18, 23, 24] */
+@media (max-width: 767px) {
+    .nav-menu { display: none; flex-direction: column; width: 100%; background: #444; position: absolute; top: 100%; left: 0; z-index: 10; }
+    .nav-menu.show { display: flex; animation: slideDown 0.4s ease; }
+    .hamburger { display: block; }
+    .large-only { display: none; }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 }
 
-nav { border-bottom: 1px solid #30363d; padding-bottom: 10px; }
-
-#menu { display: none; list-style: none; padding: 0; }
-#menu.show { display: block; border: 1px solid #30363d; padding: 10px; background: #161b22; }
-
-.carousel { border: 1px solid #30363d; padding: 5px; overflow: hidden; }
-.slides { display: flex; transition: transform 0.5s ease-in-out; }
-.slides img { min-width: 100%; height: auto; }
-
-.controls { display: flex; gap: 10px; margin-top: 10px; }
-button { background: #21262d; border: 1px solid #8b949e; color: #c9d1d9; padding: 5px 10px; cursor: pointer; }
-button:hover { background: #30363d; }
+@media (min-width: 768px) {
+    .medium-only { display: none; }
+}
